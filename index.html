@@ -1,0 +1,629 @@
+<!DOCTYPE HTML>
+<!--
+	Spectral by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Starbucks TW</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+/* ===== 水平選單 ===== */
+.menu-horizontal {
+    display: flex;
+    gap: 28px; /* 選單間距 */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-horizontal li a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 1);
+    font-weight: 600;
+    font-size: 16px;
+    padding: 8px 12px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.menu-horizontal li a:hover {
+    color: #0f744f; /* Starbucks 綠色 */
+    background-color: #ffffff22; /* 半透明白背景 */
+    border-radius: 6px;
+}
+
+/* 導航欄位置 */
+#header nav {
+    margin-left: auto; /* 讓選單靠右 */
+}
+
+/* 桌面版選單仍顯示水平選單 */
+.menu-horizontal {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* 漢堡按鈕預設隱藏 */
+#hamburger {
+    display: none;
+    cursor: pointer;
+    font-size: 28px;
+    color: #ffffff;
+    margin-left: auto;
+}
+
+/* 手機版 */
+@media screen and (max-width: 736px) {
+    #hamburger {
+        display: block;
+    }
+
+    .menu-horizontal {
+        display: none; /* 預設隱藏 */
+        flex-direction: column;
+        gap: 12px;
+        position: absolute;
+        top: 40px;   /* header 高度 */
+        right: 0px;
+        background-color: #4c9479ef;
+        padding: 12px 16px;
+        border-radius: 10px;
+        z-index: 1000;
+		width: 260px;
+    }
+
+    /* 展開時顯示選單 */
+    .menu-horizontal.show {
+        display: flex;
+    }
+}
+
+
+
+
+/* ===== 圖片輪播 ===== */
+.slider {
+    position: relative;
+    width: 100vw;
+    max-width: 1800px;
+	max-height: 800px;  /* 桌面最大高度，可調整 */
+    /* 高度改成比例，自動依寬度縮放 */
+    aspect-ratio: 16 / 9; /* 16:9 比例，可改 3/2、4/3 等 */
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 0px;
+	display: flex;      /* 讓圖片跟容器對齊 */
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* 保持比例填滿容器 */
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+/* 手機優化 */
+@media screen and (max-width: 736px) {
+    .slider {
+        width: 100%;
+    }
+    .prev, .next {
+        font-size: 28px;
+        padding: 8px 12px;
+    }
+    .dot {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+
+/* ===== News Accordion (Starbucks Style) ===== */
+
+#news {
+	background-color: #1a362aec;
+}
+
+.news-accordion {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.news-accordion li {
+	background: #ffffffda;
+	border-radius: 14px;
+	margin-bottom: 18px;
+	box-shadow: 0 6px 18px rgba(20, 49, 41, 0.12);
+	cursor: pointer;
+	overflow: hidden;
+	transition: box-shadow 0.3s ease;
+}
+
+.news-accordion li:hover {
+	box-shadow: 0 10px 28px rgba(30,57,50,0.18);
+}
+
+/* 標題（永遠顯示） */
+.news-title {
+	padding: 22px 26px;
+	font-size: 18px;
+	font-weight: 600;
+	color: #1e3932;
+	position: relative;
+}
+
+/* ＋ － 符號 */
+.news-title::after {
+	content: "⌄";
+	position: absolute;
+	right: 24px;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 22px;
+	color: #00754a;
+	transition: transform 0.3s ease;
+}
+
+.news-accordion li.active .news-title::after {
+	content: "⌃";
+}
+
+/* 內容 */
+.news-content {
+	display: none;
+	padding: 0 26px 22px;
+	color: #1a352a;
+	line-height: 1.9;
+	border-top: 1px solid #10211b;
+}
+#news header.major p {
+    color: #ebebeb; /* Starbucks 綠色，換成你喜歡的顏色也可以 */
+    font-size: 16px; /* 可選，調整大小 */
+}
+
+
+/* 手機 */
+@media screen and (max-width: 736px) {
+	.news-title {
+		font-size: 16px;
+		padding: 18px 20px;
+	}
+	.news-content {
+		padding: 0 20px 18px;
+	}
+}
+/* 日期*/
+.news-title {
+    display: flex;
+    align-items: center;
+    padding: 22px 26px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #1e3932;
+    position: relative;
+}
+
+.news-date {
+    display: inline-block;
+    /*background-color: #0f744f;  Starbucks 綠色背景 */
+    color: #757575ff; /* 白字 */
+    font-size: 14px;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 6px;
+    margin-right: 12px;
+}
+.btn-more {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 10px 22px;
+    border: 2px solid #ffffff; /* Starbucks 綠 */
+    color: #ffffff;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+}
+
+.btn-more:hover {
+    background-color: #ffffff6c;
+    color: #ffffff;
+}
+
+
+</style>
+
+	</head>
+	<body class="landing is-preload">
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header" class="alt">
+						<h1><a href="index.html">Starbucks TW</a></h1>
+						<nav id="nav">
+    <!-- 漢堡按鈕 -->
+    <div id="hamburger">&#9776;</div> <!-- &#9776; 是三條線符號 -->
+
+    <ul class="menu-horizontal">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="drinks.html">drinks</a></li>
+        <li><a href="food.html">food</a></li>
+        <li><a href="collection.html">collection</a></li>
+        <li><a href="login.html">Log In</a></li>
+    </ul>
+</nav>
+
+
+
+					</header>
+
+				<!-- Banner -->
+					<section id="banner">
+						<div class="inner">
+							<h2>Starbucks TW</h2>
+							<p>從產地到杯中，<br>
+							我們用心對待每一個細節
+							<ul class="actions special">
+								<li><a href="#two" class="button primary">尋找飲品</a></li>
+							</ul>
+						</div>
+						<a href="#news" class="more scrolly">Learn More</a>
+					</section>
+					<!-- Image Slider -->
+					 <section id="slider" class="wrapper style2">
+<center>
+    <div class="inner">
+        <div class="slider">
+            <img src="images/slid1.jpg" class="slide active">
+            <img src="images/slid2.jpg" class="slide">
+            <img src="images/slid3.jpg" class="slide">
+			<img src="images/slid4.jpg" class="slide">
+			<img src="images/slid5.jpg" class="slide">
+			  <!-- 左右箭頭 -->
+            <a class="prev">&#10094;</a>
+            <a class="next">&#10095;</a>
+
+            <!-- 下方小圓點 -->
+            <div class="dots">
+                <span class="dot active" data-index="0"></span>
+                <span class="dot" data-index="1"></span>
+                <span class="dot" data-index="2"></span>
+				<span class="dot" data-index="3"></span>
+				<span class="dot" data-index="4"></span>
+            </div>
+        </div>
+    </div>
+</section>
+</center>
+<!-- News Accordion -->
+<section id="news" class="wrapper style1">
+	<div class="inner">
+		<header class="major">
+			<h2>最新資訊</h2>
+			<p>掌握品牌動態，感受每一刻咖啡時光</p>
+		</header>
+
+		<ul class="news-accordion">
+			<li>
+				<div class="news-title">
+					<span class="news-date">2025-12-23</span>
+					網站上線，歡迎造訪！</div>
+				<div class="news-content">
+					<p><br>
+						Starbucks TW 全新官方網站正式上線，
+						提供更直覺的操作體驗與溫暖的視覺設計。
+					</p>
+					<p>
+						從最新消息、門市資訊到品牌理念，
+						陪伴你探索每一杯咖啡背後的故事。
+					</p>
+				</div>
+			</li>
+
+			<li>
+				<div class="news-title">
+					<span class="news-date">2025-12-23</span>
+					冬季優惠活動</div>
+				<div class="news-content">
+					<p><br>
+						冬季限定暖心優惠正式登場，
+						多款熱飲與甜點陪你度過寒冷時刻。
+					</p>
+					<p>
+						會員享有專屬回饋，讓日常咖啡時光更加美好。
+					</p>
+				</div>
+			</li>
+
+			<li>
+				<div class="news-title">
+					<span class="news-date">2025-12-23</span>
+					永續行動，從一杯咖啡開始</div>
+				<div class="news-content">
+					<p><br>
+						我們持續投入永續發展，
+						從咖啡豆來源到包裝設計，關注每一個細節。
+					</p>
+					<p>
+						邀請你自備環保杯，一起為地球帶來正向改變。
+					</p>
+				</div>
+			</li>
+
+			<li>
+				<div class="news-title">
+					<span class="news-date">2025-12-23</span>
+					門市體驗全面升級</div>
+				<div class="news-content">
+					<p><br>
+						部分門市完成空間優化，
+						打造更舒適的第三空間體驗。
+					</p>
+					<p>
+						期待你在門市中找到屬於自己的放鬆時刻。
+					</p>
+				</div>
+			</li>
+		</ul>
+	</div>
+</section>
+
+
+
+
+				<!-- One 
+					<section id="one" class="wrapper style1 special">
+						<div class="inner">
+							<header class="major">
+								<h2>Arcu aliquet vel lobortis ata nisl<br />
+								eget augue amet aliquet nisl cep donec</h2>
+								<p>Aliquam ut ex ut augue consectetur interdum. Donec amet imperdiet eleifend<br />
+								fringilla tincidunt. Nullam dui leo Aenean mi ligula, rhoncus ullamcorper.</p>
+							</header>
+							<ul class="icons major">
+								<li><span class="icon fa-gem major style1"><span class="label">Lorem</span></span></li>
+								<li><span class="icon fa-heart major style2"><span class="label">Ipsum</span></span></li>
+								<li><span class="icon solid fa-code major style3"><span class="label">Dolor</span></span></li>
+							</ul>
+						</div>
+					</section>-->
+					
+					<!-- CTA -->
+					 	
+					<section id="cta" class="wrapper style4">
+						<div class="inner">
+							<header>
+							<center>
+							<h2> Starbucks TW  </h2>
+							</header>
+							</center>
+						</div>
+					</section>
+					
+
+
+						<!-- Two -->
+					<section id="two" class="wrapper alt style2">
+					<section class="spotlight ">
+							<div class="image"><img src="images/pic01.jpg" alt="" /></div><div class="content">
+								<h2 style="font-size: 30px;">飲品<br></h2>
+								<p>令人驚豔的精選咖啡風味與各式手調飲品，期待你親自來探索與享受。</p>
+								<!-- 新增按鈕 -->
+								    <a href="drinks.html" class="btn-more">了解更多</a>
+							</div>
+						</section>
+						<section class="spotlight">
+							<div class="image"><img src="images/pic02.jpg" alt="" /></div><div class="content">
+								<h2 style="font-size: 30px;">糕點<br /></h2>
+								<p>高品質食材製成豐富的蛋糕、三明治和輕食餐點，每一口都能品嘗到食物的原味，回味無窮。</p>
+								<!-- 新增按鈕 -->
+							    <a href="food.html" class="btn-more">了解更多</a>
+							</div>
+						</section>
+						<section class="spotlight">
+							<div class="image"><img src="images/pic03.jpg" alt="" /></div><div class="content">
+								<h2 style="font-size: 30px;">咖啡用品及設備<br />
+								</h2>
+								<p>挑選最適合你的咖啡用品與設備，與好友家人一起共創居家迷人咖啡時光。</p>
+								<!-- 新增按鈕 -->
+							    <a href="collection.html" class="btn-more">了解更多</a>	
+							</ul>
+							</div>
+						</section>
+					</section>
+						
+					</article>
+
+				<!-- Three 
+					<section id="three" class="wrapper style3 special">
+						<div class="inner">
+							<header class="major">
+								<h2>Accumsan mus tortor nunc aliquet</h2>
+								<p>Aliquam ut ex ut augue consectetur interdum. Donec amet imperdiet eleifend<br />
+								fringilla tincidunt. Nullam dui leo Aenean mi ligula, rhoncus ullamcorper.</p>
+							</header>
+							<ul class="features">
+								<li class="icon fa-paper-plane">
+									<h3>Arcu accumsan</h3>
+									<p>Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem tincidunt nullam amet leo Aenean ligula consequat consequat.</p>
+								</li>
+								<li class="icon solid fa-laptop">
+									<h3>Ac Augue Eget</h3>
+									<p>Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem tincidunt nullam amet leo Aenean ligula consequat consequat.</p>
+								</li>
+								<li class="icon solid fa-code">
+									<h3>Mus Scelerisque</h3>
+									<p>Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem tincidunt nullam amet leo Aenean ligula consequat consequat.</p>
+								</li>
+								<li class="icon solid fa-headphones-alt">
+									<h3>Mauris Imperdiet</h3>
+									<p>Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem tincidunt nullam amet leo Aenean ligula consequat consequat.</p>
+								</li>
+								<li class="icon fa-heart">
+									<h3>Aenean Primis</h3>
+									<p>Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem tincidunt nullam amet leo Aenean ligula consequat consequat.</p>
+								</li>
+								<li class="icon fa-flag">
+									<h3>Tortor Ut</h3>
+									<p>Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem tincidunt nullam amet leo Aenean ligula consequat consequat.</p>
+								</li>
+							</ul>
+						</div>
+					</section>-->
+					<!-- CTA -->
+					<section id="cta" class="wrapper style4">
+						<div class="inner">
+							<header>
+							<h2>加入 Starbucks Rewards™</h2>
+							<p>累積星星，兌換專屬回饋，<br>
+								讓咖啡時光更有價值</p>
+
+							</header>
+							<ul class="actions stacked">
+								<li><a href="login.html" class="button fit primary">成為會員</a></li>
+								<li><a href="login.html" class="button fit">了解 Rewards</a></li>
+							</ul>
+						</div>
+					</section>
+
+				
+
+				<!-- Footer -->
+					<footer id="footer">
+						<ul class="icons">
+							<li><a href="https://x.com/Starbucks" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="https://www.facebook.com/starbuckstaiwan?ref=nf" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="https://www.instagram.com/starbuckstw/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+					    </ul>
+						<ul class="copyright">
+							<li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						</ul>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+		 <script>
+$(function(){
+    let index = 0;
+    const slides = $(".slide");
+    const dots = $(".dot");
+    const total = slides.length;
+
+    function showSlide(i) {
+        slides.removeClass("active").eq(i).addClass("active");
+        dots.removeClass("active").eq(i).addClass("active");
+    }
+
+    // 自動輪播
+    let slideInterval = setInterval(function(){
+        index = (index + 1) % total;
+        showSlide(index);
+    }, 3500);
+
+    // 點擊箭頭
+    $(".next").click(function(){
+        index = (index + 1) % total;
+        showSlide(index);
+        resetInterval();
+    });
+
+    $(".prev").click(function(){
+        index = (index - 1 + total) % total;
+        showSlide(index);
+        resetInterval();
+    });
+
+    // 點擊圓點
+    $(".dot").click(function(){
+        index = $(this).data("index");
+        showSlide(index);
+        resetInterval();
+    });
+
+    // 點擊後重置自動輪播計時
+    function resetInterval(){
+        clearInterval(slideInterval);
+        slideInterval = setInterval(function(){
+            index = (index + 1) % total;
+            showSlide(index);
+        }, 3500);
+    }
+});
+</script>
+<script>
+document.querySelectorAll(".news-accordion li").forEach(item => {
+	item.addEventListener("click", () => {
+		const content = item.querySelector(".news-content");
+		const isOpen = item.classList.contains("active");
+
+		// 關閉其他
+		document.querySelectorAll(".news-accordion li").forEach(i => {
+			i.classList.remove("active");
+			i.querySelector(".news-content").style.display = "none";
+		});
+
+		// 切換當前
+		if (!isOpen) {
+			item.classList.add("active");
+			content.style.display = "block";
+		}
+	});
+});
+
+
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const hamburger = document.getElementById("hamburger");
+    const menu = document.querySelector(".menu-horizontal");
+
+    hamburger.addEventListener("click", function() {
+        menu.classList.toggle("show"); // 切換顯示/隱藏
+    });
+
+    // 點擊選單項目後自動收起（手機體驗）
+    menu.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", function() {
+            if(window.innerWidth <= 736) {
+                menu.classList.remove("show");
+            }
+        });
+    });
+});
+</script>
+
+
+
+	</body>
+</html>

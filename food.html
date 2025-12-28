@@ -1,0 +1,306 @@
+<!DOCTYPE HTML>
+<!--
+	Spectral by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Generic - Spectral by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+<style>
+/* ===== 水平選單 ===== */
+.menu-horizontal {
+    display: flex;
+    gap: 28px; /* 選單間距 */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-horizontal li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 8px 12px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.menu-horizontal li a:hover {
+    color: #0f744f; /* Starbucks 綠色 */
+    background-color: #ffffff22; /* 半透明白背景 */
+    border-radius: 6px;
+}
+
+/* 導航欄位置 */
+#header nav {
+    margin-left: auto; /* 讓選單靠右 */
+}
+
+/* 桌面版選單仍顯示水平選單 */
+.menu-horizontal {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* 漢堡按鈕預設隱藏 */
+#hamburger {
+    display: none;
+    cursor: pointer;
+    font-size: 28px;
+    color: #ffffff;
+    margin-left: auto;
+}
+
+/* 手機版 */
+@media screen and (max-width: 736px) {
+    #hamburger {
+        display: block;
+    }
+
+    .menu-horizontal {
+        display: none; /* 預設隱藏 */
+        flex-direction: column;
+        gap: 12px;
+        position: absolute;
+        top: 40px;   /* header 高度 */
+        right: 0px;
+        background-color: #4c9479ef;
+        padding: 12px 16px;
+        border-radius: 10px;
+        z-index: 1000;
+		width: 260px;
+    }
+
+    /* 展開時顯示選單 */
+    .menu-horizontal.show {
+        display: flex;
+    }
+}
+/* 標題 */
+#coffee-menu h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #feffff; /* Starbucks 綠 */
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#coffee-menu header p {
+    text-align: center;
+    color: #aebdb9;
+    font-size: 16px;
+    margin-bottom: 40px;
+}
+
+/* 咖啡分類按鈕 */
+.coffee-categories {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.coffee-categories button {
+    border: none;
+    background-color: #ffffff;
+    color: #315f2b;
+    font-weight: 600;
+    padding: 8px 18px;
+    margin: 0 6px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.coffee-categories button:hover,
+.coffee-categories button.active {
+    background-color: #0f744f77;
+    color: #ffffff;
+}
+
+/* 咖啡卡片區 */
+.coffee-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: center;
+}
+
+.coffee-items .item {
+    flex: 1 1 calc(25% - 24px);
+    max-width: 260px;
+    background: #ffffff;
+    border-radius: 14px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 6px 18px rgba(30,57,50,0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.coffee-items .item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 28px rgba(30,57,50,0.18);
+}
+
+.coffee-items .item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.coffee-items .item:hover img {
+    transform: scale(1.05);
+}
+
+.coffee-items .item h3 {
+    margin: 12px 0 6px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #1e3932;
+}
+
+.coffee-items .item p {
+    font-size: 14px;
+    color: #555;
+    padding: 0 12px 16px;
+    line-height: 1.6;
+}
+
+/* 響應式 */
+@media screen and (max-width: 1024px) {
+    .coffee-items .item {
+        flex: 1 1 calc(33% - 24px);
+    }
+}
+
+@media screen and (max-width: 736px) {
+    .coffee-items .item {
+        flex: 1 1 100%;
+    }
+
+    #coffee-menu h2 {
+        font-size: 28px;
+        margin-bottom: 30px;
+    }
+}
+#coffee-menu {
+    background: linear-gradient(135deg, #144130, #3f725d);
+    padding: 60px 0;
+}
+
+
+
+</style>
+	</head>
+	<body class="is-preload">
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="index.html">Spectral</a></h1>
+						<nav id="nav">
+    <!-- 漢堡按鈕 -->
+    <div id="hamburger">&#9776;</div> <!-- &#9776; 是三條線符號 -->
+
+    <ul class="menu-horizontal">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="drinks.html">drinks</a></li>
+        <li><a href="food.html">food</a></li>
+        <li><a href="collection.html">collection</a></li>
+        <li><a href="login.html">Log In</a></li>
+    </ul>
+</nav>
+
+					</header>
+
+<section id="coffee-menu" class="wrapper style2">
+    <div class="inner">
+        <header class="major">
+            <h2>蛋糕點心</h2>
+        </header>
+        <div class="coffee-items">
+            <!-- 範例咖啡 -->
+            <div class="item" data-category="espresso">
+                <img src="images/latte30.jpg">
+                <h3>檸香法式草莓塔</h3><br><br>
+                <p style="text-align: end;">$185</p>
+            </div>
+
+            <div class="item" data-category="latte">
+                <img src="images/latte31.jpg" alt="">
+                <h3>無花果核桃派</h3><br><br>
+                <p style="text-align: end;">$85</p>
+            </div>
+
+            <div class="item" data-category="frappe">
+                <img src="images/latte32.jpg" alt="">
+                <h3>巴斯克起司蛋糕</h3><br><br>
+                <p style="text-align: end;">$130</p>
+            </div>
+
+            <div class="item" data-category="special">
+                <img src="images/latte33.jpg" alt="">
+                <h3>栗子可可提拉米蘇</h3><br><br>
+                <p style="text-align: end;">$170</p>
+            </div>
+            
+
+            <!-- 可依序新增更多咖啡 -->
+        </div>
+    </div>
+</section>
+
+
+				<!-- Footer -->
+					<footer id="footer">
+						<ul class="icons">
+							<li><a href="https://x.com/Starbucks" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="https://www.facebook.com/starbuckstaiwan?ref=nf" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="https://www.instagram.com/starbuckstw/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+					    </ul>
+						<ul class="copyright">
+							<li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						</ul>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const hamburger = document.getElementById("hamburger");
+    const menu = document.querySelector(".menu-horizontal");
+
+    hamburger.addEventListener("click", function() {
+        menu.classList.toggle("show"); // 切換顯示/隱藏
+    });
+
+    // 點擊選單項目後自動收起（手機體驗）
+    menu.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", function() {
+            if(window.innerWidth <= 736) {
+                menu.classList.remove("show");
+            }
+        });
+    });
+});
+</script>
+	</body>
+</html>

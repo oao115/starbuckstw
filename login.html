@@ -1,0 +1,616 @@
+<!DOCTYPE HTML>
+<!--
+	Spectral by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Starbucks TW</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+/* ===== 水平選單 ===== */
+.menu-horizontal {
+    display: flex;
+    gap: 28px; /* 選單間距 */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-horizontal li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 8px 12px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.menu-horizontal li a:hover {
+    color: #0f744f; /* Starbucks 綠色 */
+    background-color: #ffffff22; /* 半透明白背景 */
+    border-radius: 6px;
+}
+
+/* 導航欄位置 */
+#header nav {
+    margin-left: auto; /* 讓選單靠右 */
+}
+
+/* 桌面版選單仍顯示水平選單 */
+.menu-horizontal {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* 漢堡按鈕預設隱藏 */
+#hamburger {
+    display: none;
+    cursor: pointer;
+    font-size: 28px;
+    color: #ffffff;
+    margin-left: auto;
+}
+
+/* 手機版 */
+@media screen and (max-width: 736px) {
+    #hamburger {
+        display: block;
+    }
+
+    .menu-horizontal {
+        display: none; /* 預設隱藏 */
+        flex-direction: column;
+        gap: 12px;
+        position: absolute;
+        top: 40px;   /* header 高度 */
+        right: 0px;
+        background-color: #4c9479ef;
+        padding: 12px 16px;
+        border-radius: 10px;
+        z-index: 1000;
+		width: 260px;
+    }
+
+    /* 展開時顯示選單 */
+    .menu-horizontal.show {
+        display: flex;
+    }
+}
+
+/* ===== 圖片輪播 ===== */
+.slider {
+    position: relative;
+    width: 100vw;
+    max-width: 2600px;
+    height: 620px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.slide.active {
+    opacity: 1;
+}
+/* ===== News Accordion (Starbucks Style) ===== */
+
+#news {
+	background-color: #326452;
+}
+
+.news-accordion {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.news-accordion li {
+	background: #ffffffda;
+	border-radius: 14px;
+	margin-bottom: 18px;
+	box-shadow: 0 6px 18px rgba(30,57,50,0.12);
+	cursor: pointer;
+	overflow: hidden;
+	transition: box-shadow 0.3s ease;
+}
+
+.news-accordion li:hover {
+	box-shadow: 0 10px 28px rgba(30,57,50,0.18);
+}
+
+/* 標題（永遠顯示） */
+.news-title {
+	padding: 22px 26px;
+	font-size: 18px;
+	font-weight: 600;
+	color: #1e3932;
+	position: relative;
+}
+
+/* ＋ － 符號 */
+.news-title::after {
+	content: "⌄";
+	position: absolute;
+	right: 24px;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 22px;
+	color: #00754a;
+	transition: transform 0.3s ease;
+}
+
+.news-accordion li.active .news-title::after {
+	content: "⌃";
+}
+
+/* 內容 */
+.news-content {
+	display: none;
+	padding: 0 26px 22px;
+	color: #1a352a;
+	line-height: 1.9;
+	border-top: 1px solid #10211b;
+}
+#news header.major p {
+    color: #ebebeb; /* Starbucks 綠色，換成你喜歡的顏色也可以 */
+    font-size: 16px; /* 可選，調整大小 */
+}
+#news header.major {
+    border-bottom: 2px solid #c9c9c9; /* Starbucks 綠色 */
+    padding-bottom: 10px; /* 調整間距 */
+    margin-bottom: 20px;  /* header 和手風琴內容的間距 */
+}
+
+/* 手機 */
+@media screen and (max-width: 736px) {
+	.news-title {
+		font-size: 16px;
+		padding: 18px 20px;
+	}
+	.news-content {
+		padding: 0 20px 18px;
+	}
+}
+/* 日期*/
+.news-title {
+    display: flex;
+    align-items: center;
+    padding: 22px 26px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #1e3932;
+    position: relative;
+}
+
+.news-date {
+    display: inline-block;
+    /*background-color: #0f744f;  Starbucks 綠色背景 */
+    color: #8d8d8d; /* 白字 */
+    font-size: 14px;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 6px;
+    margin-right: 12px;
+}
+.btn-more {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 10px 22px;
+    border: 2px solid #ffffff; /* Starbucks 綠 */
+    color: #ffffff;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+}
+
+.btn-more:hover {
+    background-color: #ffffff6c;
+    color: #ffffff;
+}
+/* ===== 會員 Modal 視窗 ===== */
+
+.modal {
+    display: none;                 /* 預設隱藏 */
+    position: fixed;
+    z-index: 20000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);   /* 半透明黑底 */
+}
+
+.modal-content {
+    background: #ffffff;
+    width: 90%;
+    max-width: 420px;
+    padding: 30px;
+    border-radius: 14px;
+    position: relative;
+    margin: 10% auto;
+    text-align: center;
+}
+
+.modal-content h2 {
+    color: #1e3932;
+    margin-bottom: 10px;
+}
+
+.modal-content p {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* 表單輸入 */
+.modal-content input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 14px;
+    border-radius: 8px;
+    border: 1px solid #9e9e9eff;
+    font-size: 14px;
+}
+
+/* 關閉按鈕 */
+.modal .close {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #999;
+}
+
+.modal .close:hover {
+    color: #000;
+}
+/* Rewards Modal 基本樣式 */
+#rewards-modal .modal-content {
+    max-width: 600px;
+    text-align: left;
+    padding: 30px;
+}
+
+#rewards-modal .modal-content h2 {
+    color: #0f744f;
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+#rewards-modal .rewards-benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+#rewards-modal .rewards-benefits .benefit h3 {
+    color: #0f744f;
+    margin-bottom: 4px;
+}
+
+#rewards-modal .how-to-join h3 {
+    margin-bottom: 6px;
+}
+
+#rewards-modal .how-to-join ol {
+    margin-left: 1.5em;
+    margin-bottom: 12px;
+}
+
+#rewards-modal .btn-more {
+    display: block;
+    margin: 0 auto;
+    width: fit-content;
+}
+
+
+</style>
+
+	</head>
+	<body class="landing is-preload">
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header" class="alt">
+						<h1><a href="index.html">Starbucks TW</a></h1>
+						<nav id="nav">
+    <!-- 漢堡按鈕 -->
+    <div id="hamburger">&#9776;</div> <!-- &#9776; 是三條線符號 -->
+
+    <ul class="menu-horizontal">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="drinks.html">drinks</a></li>
+        <li><a href="food.html">food</a></li>
+        <li><a href="collection.html">collection</a></li>
+        <li><a href="login.html">Log In</a></li>
+    </ul>
+</nav>
+
+					</header>
+
+				<!-- Banner -->
+					<section id="banner">
+						<div class="inner">
+							
+							<header>
+							<h2>加入 Starbucks Rewards™</h2>
+							<p>累積星星，兌換專屬回饋，<br>
+								讓咖啡時光更有價值</p>
+
+							</header>
+							<ul class="actions stacked">
+    <li>
+        <a href="#" id="open-member-login" class="button fit primary">
+            登入會員
+        </a>
+    </li>
+    <li>
+        <a href="#" id="open-member-signup" class="button fit primary">
+            成為會員
+        </a>
+    </li>
+    <li>
+        <a href="#"  id="open-member-rewards" class="button fit">了解 Rewards</a>
+    </li>
+</ul>
+
+
+
+						</div>
+					
+					</section>
+					<!-- Image Slider -->
+					
+<!-- 會員視窗 -->
+<div id="member-modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>加入 Starbucks Rewards™</h2>
+        <p>建立帳戶或登入會員，累積星星享回饋</p>
+
+        <!-- 登入 -->
+        <div id="login-box">
+            <h2>登入會員</h2>
+            <input type="email" placeholder="Email">
+            <input type="password" placeholder="密碼">
+            <button class="button primary fit">登入</button>
+        </div>
+
+        <!-- 註冊 -->
+        <div id="signup-box" style="display:none;">
+            <h2>成為會員</h2>
+            <input type="text" placeholder="姓名">
+            <input type="email" placeholder="Email">
+            <input type="password" placeholder="密碼">
+            <input type="password" placeholder="確認密碼">
+            <button class="button primary fit">建立帳戶</button>
+        </div>
+    </div>
+</div>
+
+<!-- Rewards Modal (獨立) -->
+<div id="rewards-modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>了解 Starbucks Rewards™</h2>
+		
+        <h3 style="color: #66a381ff;">累積星星換好禮，每次咖啡時光都更有價值！</h3>
+
+        <section class="rewards-benefits">
+            <div class="benefit">
+                <h3>累積星星</h3>
+                <p>每次消費都能累積星星，輕鬆換取免費飲料或點心。</p>
+            </div>
+            <div class="benefit">
+                <h3>專屬優惠</h3>
+                <p>生日禮、季節限定優惠和會員活動通知。</p>
+            </div>
+            <div class="benefit">
+                <h3>快速結帳</h3>
+                <p>使用會員付款，更快、更方便。</p>
+            </div>
+			<div class="benefit">
+                <h3>如何加入</h3>
+                <ol><p>1.點擊「成為會員」建立帳號</p>
+                <p>2.下載 Starbucks App</p>
+                <p>3.消費累積星星，兌換專屬好禮</p></ol>
+            </div>
+        </section>
+
+       
+    </div>
+</div>
+
+
+
+
+	
+
+				
+
+				<!-- Footer -->
+					<footer id="footer">
+						<ul class="icons">
+							<li><a href="https://x.com/Starbucks" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="https://www.facebook.com/starbuckstaiwan?ref=nf" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="https://www.instagram.com/starbuckstw/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+					    </ul>
+						<ul class="copyright">
+							<li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						</ul>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+		 <script>
+$(function(){
+    let index = 0;
+    const slides = $(".slide");
+    const dots = $(".dot");
+    const total = slides.length;
+
+    function showSlide(i) {
+        slides.removeClass("active").eq(i).addClass("active");
+        dots.removeClass("active").eq(i).addClass("active");
+    }
+
+    // 自動輪播
+    let slideInterval = setInterval(function(){
+        index = (index + 1) % total;
+        showSlide(index);
+    }, 3500);
+
+    // 點擊箭頭
+    $(".next").click(function(){
+        index = (index + 1) % total;
+        showSlide(index);
+        resetInterval();
+    });
+
+    $(".prev").click(function(){
+        index = (index - 1 + total) % total;
+        showSlide(index);
+        resetInterval();
+    });
+
+    // 點擊圓點
+    $(".dot").click(function(){
+        index = $(this).data("index");
+        showSlide(index);
+        resetInterval();
+    });
+
+    // 點擊後重置自動輪播計時
+    function resetInterval(){
+        clearInterval(slideInterval);
+        slideInterval = setInterval(function(){
+            index = (index + 1) % total;
+            showSlide(index);
+        }, 3500);
+    }
+});
+</script>
+<script>
+document.querySelectorAll(".news-accordion li").forEach(item => {
+	item.addEventListener("click", () => {
+		const content = item.querySelector(".news-content");
+		const isOpen = item.classList.contains("active");
+
+		// 關閉其他
+		document.querySelectorAll(".news-accordion li").forEach(i => {
+			i.classList.remove("active");
+			i.querySelector(".news-content").style.display = "none";
+		});
+
+		// 切換當前
+		if (!isOpen) {
+			item.classList.add("active");
+			content.style.display = "block";
+		}
+	});
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const loginBtn = document.getElementById("open-member-login");
+    const signupBtn = document.getElementById("open-member-signup");
+    const rewardsBtn = document.getElementById("open-member-rewards");
+
+    const memberModal = document.getElementById("member-modal");
+    const rewardsModal = document.getElementById("rewards-modal");
+
+    const loginBox = document.getElementById("login-box");
+    const signupBox = document.getElementById("signup-box");
+
+    loginBtn.addEventListener("click", e => {
+        e.preventDefault();
+        memberModal.style.display = "block";
+        loginBox.style.display = "block";
+        signupBox.style.display = "none";
+    });
+
+    signupBtn.addEventListener("click", e => {
+        e.preventDefault();
+        memberModal.style.display = "block";
+        loginBox.style.display = "none";
+        signupBox.style.display = "block";
+    });
+
+    rewardsBtn.addEventListener("click", e => {
+        e.preventDefault();
+        rewardsModal.style.display = "block";
+    });
+
+    document.querySelectorAll(".modal .close").forEach(btn => {
+        btn.addEventListener("click", e => {
+            e.target.closest(".modal").style.display = "none";
+        });
+    });
+
+    window.addEventListener("click", e => {
+        if (e.target === memberModal) memberModal.style.display = "none";
+        if (e.target === rewardsModal) rewardsModal.style.display = "none";
+    });
+});
+
+
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const hamburger = document.getElementById("hamburger");
+    const menu = document.querySelector(".menu-horizontal");
+
+    hamburger.addEventListener("click", function() {
+        menu.classList.toggle("show"); // 切換顯示/隱藏
+    });
+
+    // 點擊選單項目後自動收起（手機體驗）
+    menu.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", function() {
+            if(window.innerWidth <= 736) {
+                menu.classList.remove("show");
+            }
+        });
+    });
+});
+</script>
+
+
+
+
+
+	</body>
+</html>
